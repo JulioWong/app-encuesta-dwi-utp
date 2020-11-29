@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="49px" viewBox="0 0 52 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>DD3EE014-B8AF-4730-ABE4-770FFDCBD17C</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="52" height="48.1678322" rx="7"></rect>
+        <filter x="-30.3%" y="-26.5%" width="160.6%" height="165.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="1.25" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="3" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile/Survey/02" transform="translate(-16.000000, -715.000000)">
+            <g id="Factor-5" transform="translate(16.000000, 685.000000)">
+                <g id="Survey_Options/Mobile/Satisfaction_Faces/01/On" transform="translate(0.000000, 30.000000)">
+                    <g id="Rectangle">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use stroke="#5D5D5D" stroke-width="1.5" fill="#DC4A2E" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <ellipse id="Oval" fill="#FFFFFF" cx="15.5" cy="15.2840237" rx="4.5" ry="4.16837009"></ellipse>
+                    <ellipse id="Oval-Copy" fill="#FFFFFF" cx="37.5" cy="15.2840237" rx="4.5" ry="4.16837009"></ellipse>
+                    <path d="M15,37.0521786 C18.3440075,33.3469607 21.8640075,31.4943518 25.56,31.4943518 C29.2559925,31.4943518 33.0693258,33.3469607 37,37.0521786" id="Path-2" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M36.1666667,27.4362561 C35.7222222,28.9065806 36.1666667,29.6417429 37.5,29.6417429 C38.8333333,29.6417429 39.2777778,28.9065806 38.8333333,27.4362561 L37.5,25.0102205 L36.1666667,27.4362561 Z" id="Path-3" fill="#3AD8F7"></path>
+                    <path d="M13.1666667,25.5836471 C12.7222222,27.0539717 13.1666667,27.7891339 14.5,27.7891339 C15.8333333,27.7891339 16.2777778,27.0539717 15.8333333,25.5836471 L14.5,23.1576116 L13.1666667,25.5836471 Z" id="Path-3" fill="#3AD8F7"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="48px" viewBox="0 0 52 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>D0F99308-AD7B-46F2-90C5-C5A9D2D8C1CA</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="52" height="47.4964789" rx="7"></rect>
+        <filter x="-30.3%" y="-26.8%" width="160.6%" height="166.3%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="1.25" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="3" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile/Survey/02" transform="translate(-192.000000, -374.000000)">
+            <g id="Factor-2" transform="translate(16.000000, 345.000000)">
+                <g id="Survey-Options/Mobile/Satisfaction_Faces" transform="translate(0.000000, 29.000000)">
+                    <g id="Survey_Options/Mobile/Satisfaction_Faces/04/On" transform="translate(176.000000, 0.000000)">
+                        <g id="Rectangle">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                            <use stroke="#5D5D5D" stroke-width="1.5" fill="#73C11E" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        </g>
+                        <ellipse id="Oval" fill="#FFFFFF" cx="14.5" cy="15.0709981" rx="4.5" ry="4.11027221"></ellipse>
+                        <ellipse id="Oval-Copy" fill="#FFFFFF" cx="37.5" cy="15.0709981" rx="4.5" ry="4.11027221"></ellipse>
+                        <path d="M15,35.6223592 C18.4960078,33.1866423 22.1760078,31.9687839 26.04,31.9687839 C29.9039922,31.9687839 33.8906588,33.1866423 38,35.6223592" id="Path-2" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(26.500000, 33.795572) scale(1, -1) translate(-26.500000, -33.795572) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
