@@ -29,9 +29,10 @@ for(int i=0; i < allQuestion.size(); i++){
                   Opciones
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <% if(!ques.getType().equalsIgnoreCase("checkbox")){ %>
                   <button class="dropdown-item" type="button" data-toggle="modal" data-target="#modalNewAlternatives">Alternativas</button>
                   <div class="dropdown-divider"></div>
-                  
+                  <% } %>                  
                     <form class="asyncForm" method="POST" action="./QuestionController">
                         <input type="hidden" name="questionId" value="<%=ques.getQuestionId()%>">
                         <input type="hidden" name="type" value="delete">
