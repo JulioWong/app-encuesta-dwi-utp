@@ -8,4 +8,5 @@ public interface SurveyInterface {
     public ArrayList<Survey> getAll(Company company);
     public boolean add(int userId, Survey survey, Company company);
     public boolean update(Survey survey);
+    public boolean active(int surveyId, int companyid, int active);
 }

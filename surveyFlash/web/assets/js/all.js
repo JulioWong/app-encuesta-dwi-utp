@@ -1,16 +1,18 @@
 function sendForm(fn, fnError) {
     $(function(){
-        $(".asyncForm").on("submit", function(e) {
-            e.preventDefault();
-            var dataToPost = $(this).serialize();
-            $.post($(this).prop("action"), dataToPost)
-            .done(function(response, status, jqxhr){
-                fn();
-            })
-            .fail(function(jqxhr, status, error){ 
-                fnError();
-            });
-        });
+        $(document).on({
+            submit: function(e) {
+                e.preventDefault();
+                var dataToPost = $(this).serialize();
+                $.post($(this).prop("action"), dataToPost)
+                .done(function(response, status, jqxhr){
+                    fn();
+                })
+                .fail(function(jqxhr, status, error){ 
+                    fnError();
+                });
+            }
+        }, ".asyncForm");
     });
 }
 

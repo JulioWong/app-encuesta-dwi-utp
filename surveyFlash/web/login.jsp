@@ -1,6 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@include file="template/client/header.jsp" %>
+<%
+if (userId != null) response.sendRedirect("./survey.jsp");
+%>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-5">

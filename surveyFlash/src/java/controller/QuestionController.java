@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 import java.io.IOException;
@@ -12,47 +7,34 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Company;
-import model.DAO.SurveyDAO;
-import model.Survey;
+import model.DAO.QuestionDAO;
+import model.Question;
 
-
-@WebServlet(name = "SurveyController", urlPatterns = {"/SurveyController"})
-public class SurveyController extends HttpServlet {
+@WebServlet(name = "QuestionController", urlPatterns = {"/QuestionController"})
+public class QuestionController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         
+        
         boolean res = false;
-        Survey survey = new Survey();
-        SurveyDAO surveyDAO = new SurveyDAO();
+        Question question = new Question();
+        QuestionDAO questionDAO = new QuestionDAO();
         
-        HttpSession session = request.getSession();
-        Company company = (Company) session.getAttribute("company");
-        
-        if (request.getParameter("type").equalsIgnoreCase("active")) {
-            res = surveyDAO.active(
-                    Integer.parseInt(request.getParameter("surveyId")), 
-                    company.getCompanyId(), 
-                    Integer.parseInt(request.getParameter("active")));
+        if (request.getParameter("type").equalsIgnoreCase("delete")) {
+            res = questionDAO.delete(
+                    Integer.parseInt(request.getParameter("questionId")));
             
         } else {
-            if (request.getParameter("surveyId").equals("0")) {
-                survey.setDescription(request.getParameter("description"));
-                survey.setDiscount(request.getParameter("discount"));
-                survey.setBannerDiscount(request.getParameter("banner"));
-                survey.setDiscountExpiration(request.getParameter("exp"));
-                int userId = (int) session.getAttribute("userId");
-                res = surveyDAO.add(userId, survey, company);
-
+            if (request.getParameter("questionId").equals("0")) {
+                question.setSurveyId(Integer.parseInt(request.getParameter("surveyId")));
+                question.setQuestion(request.getParameter("description"));
+                question.setTypeId(Integer.parseInt(request.getParameter("typeId")));
+                res = questionDAO.add(question);
             } else {
-                survey.setSurveyId(Integer.parseInt(request.getParameter("surveyId")));
-                survey.setDescription(request.getParameter("description"));
-                survey.setDiscount(request.getParameter("discount"));
-                survey.setBannerDiscount(request.getParameter("banner"));
-                survey.setDiscountExpiration(request.getParameter("exp"));
-                res = surveyDAO.update(survey);
+                question.setQuestionId(Integer.parseInt(request.getParameter("questionId")));
+                question.setQuestion(request.getParameter("description"));
+                question.setTypeId(Integer.parseInt(request.getParameter("typeId")));
+                res = questionDAO.update(question);
             }
         }
         

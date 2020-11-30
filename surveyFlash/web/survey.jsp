@@ -48,6 +48,7 @@
             </div>
             <div class="modal-body">
                 <input type="hidden" name="surveyId" id="surveyId"/>
+                <input type="hidden" name="type" id="new_edit"/>
                 <div class="form-group">
                   <label for="description">Descripción</label>
                   <input type="text" class="form-control" id="description" name="description" required>
@@ -73,21 +74,5 @@
   </div>
 </div>
 <script src="./assets/js/all.js"></script>
-<script>
-    $('#modalNewSurvey').on('shown.bs.modal', function (e) {
-        $('input').val('');
-        $('#surveyId').val($(e.relatedTarget).data('id'))
-        if ($(e.relatedTarget).data('id')) {
-            $('#description').val($(e.relatedTarget).data('description'));
-            $('#discount').val($(e.relatedTarget).data('discount'));
-            $('#banner').val($(e.relatedTarget).data('banner'));
-            $('#exp').val($(e.relatedTarget).data('exp'));
-        }
-    });
-    
-    sendForm(function() {
-        getContent('./partialView/_listSurvey.jsp', "tbody");
-        $('#modalNewSurvey').modal('toggle');
-    }, function() {});
-</script>
+<script src="./assets/js/survey.js"></script>
 <%@include file="template/admin/footer.html" %>

@@ -76,4 +76,19 @@ public class SurveyDAO implements SurveyInterface{
             return false;
         }
     }
+
+    @Override
+    public boolean active(int surveyId, int companyid, int active) {
+        try {
+            CallableStatement proc = DBconnection.prepareCall("{CALL spSetActiveSurvey(?, ?, ?)}");  
+            proc.setInt(1, surveyId);
+            proc.setInt(2, companyid);
+            proc.setInt(3, active);
+            proc.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(SurveyDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
 }

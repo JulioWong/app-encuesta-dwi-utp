@@ -37,7 +37,7 @@ public class UserDAO implements UserInterface{
                 u.setCompany(company);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(CompanyDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }    
         return u;
     }
