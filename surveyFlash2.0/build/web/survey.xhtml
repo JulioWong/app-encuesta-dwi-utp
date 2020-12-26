@@ -29,66 +29,67 @@
                      </div>
                  </div>    
                  <h:outputText value="&lt;br/&gt;" escape="false" />
-                 
-                 <h:dataTable class="table table-hover" id="surveyList" 
-                   value="#{surveyController.getAllSurvey(sessionController.company)}" var="survey">
-                     <h:column>
-                         <f:facet name="header">#</f:facet>
-                         <a href="#" data-target="#modalNewSurvey" data-toggle="modal" 
-                            data-id="#{survey.surveyId}"
-                            data-description="#{survey.description}"
-                            data-discount="#{survey.discount}"
-                            data-banner="#{survey.bannerDiscount}"
-                            data-exp="#{survey.discountExpiration}"
-                         >
-                       #{survey.surveyId}
-                       </a>
-                     </h:column>
-                     <h:column>
-                         <f:facet name="header">Descripción</f:facet>
-                         #{survey.description}
-                     </h:column>
-                     <h:column>
-                         <f:facet name="header">Descuento</f:facet>
-                         #{survey.discount}
-                     </h:column>
-                     <h:column>
-                         <f:facet name="header">Expiración</f:facet>
-                         #{survey.discountExpiration}
-                     </h:column>
-                     <h:column>
-                         <f:facet name="header">Activo</f:facet>
-                         #{survey.active}
-                     </h:column>
-                     <h:column>
-                         <div class="btn-group">
-                            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Opciones
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-right">                                           
-                             <h:link value="Preguntas" outcome="question" class="dropdown-item">
-                                 <f:param name="id" value="#{survey.surveyId}" />
-                                 <f:param name="description" value="#{survey.description}" />
-                             </h:link>
-                             <h:link value="Respuestas" outcome="answer" class="dropdown-item">
-                                 <f:param name="id" value="#{survey.surveyId}" />
-                             </h:link>
-                             <h:link value="Códigos de acceso" outcome="access-code" class="dropdown-item">
-                                 <f:param name="id" value="#{survey.surveyId}" />
-                             </h:link>
-                             <div class="dropdown-divider"></div>
-                             <h:form>
-                                 <h:commandButton class="itemOption dropdown-item" 
-                                   value="#{surveyController.getButtonInfo(survey.active)[1]}"
-                                   action="#{surveyController.allow(
-                                          sessionController.company,
-                                          survey.surveyId, 
-                                          surveyController.getButtonInfo(survey.active)[0])}" />
-                             </h:form>
-                            </div>
-                          </div>
-                     </h:column>
-                 </h:dataTable>
+                 <div class="table-responsive">
+                    <h:dataTable class="table table-hover" id="surveyList" 
+                      value="#{surveyController.getAllSurvey(sessionController.company)}" var="survey">
+                        <h:column>
+                            <f:facet name="header">#</f:facet>
+                            <a href="#" data-target="#modalNewSurvey" data-toggle="modal" 
+                               data-id="#{survey.surveyId}"
+                               data-description="#{survey.description}"
+                               data-discount="#{survey.discount}"
+                               data-banner="#{survey.bannerDiscount}"
+                               data-exp="#{survey.discountExpiration}"
+                            >
+                          #{survey.surveyId}
+                          </a>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Descripción</f:facet>
+                            #{survey.description}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Descuento</f:facet>
+                            #{survey.discount}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Expiración</f:facet>
+                            #{survey.discountExpiration}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Activo</f:facet>
+                            #{survey.active}
+                        </h:column>
+                        <h:column>
+                            <div class="btn-group">
+                               <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 Opciones
+                               </button>
+                               <div class="dropdown-menu dropdown-menu-right">                                           
+                                <h:link value="Preguntas" outcome="question" class="dropdown-item">
+                                    <f:param name="id" value="#{survey.surveyId}" />
+                                    <f:param name="description" value="#{survey.description}" />
+                                </h:link>
+                                <h:link value="Respuestas" outcome="answer" class="dropdown-item">
+                                    <f:param name="id" value="#{survey.surveyId}" />
+                                </h:link>
+                                <h:link value="Códigos de acceso" outcome="access-code" class="dropdown-item">
+                                    <f:param name="id" value="#{survey.surveyId}" />
+                                </h:link>
+                                <div class="dropdown-divider"></div>
+                                <h:form>
+                                    <h:commandButton class="itemOption dropdown-item" 
+                                      value="#{surveyController.getButtonInfo(survey.active)[1]}"
+                                      action="#{surveyController.allow(
+                                             sessionController.company,
+                                             survey.surveyId, 
+                                             surveyController.getButtonInfo(survey.active)[0])}" />
+                                </h:form>
+                               </div>
+                             </div>
+                        </h:column>
+                    </h:dataTable>
+                 </div>
              </div>
              <div class="modal" id="modalNewSurvey" tabindex="-1">
                 <div class="modal-dialog">

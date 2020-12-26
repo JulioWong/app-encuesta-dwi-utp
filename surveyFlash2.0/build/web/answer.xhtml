@@ -21,28 +21,30 @@
                      </div>
                  </div>    
                  <h:outputText value="&lt;br/&gt;" escape="false" />
-                 <h:dataTable class="table table-hover" id="surveyList" 
-                              value="#{answerController.getAll(param['id'])}" var="answer">
-                     <h:column>
-                         <f:facet name="header">Pregunta</f:facet>
-                         #{answer.question}
-                     </h:column>
-                     <h:column>
-                         <f:facet name="header">Respuestas</f:facet>
-                         #{answer.countReplies}
-                     </h:column>
-                     <h:column>
-                         <h:form>
-                            <h:commandButton class="btn btn-light"
-                                value="Resumen" 
-                                action="#{answerController.setQuestionId(answer.questionId)}" >
-                                <f:param value="#{param['id']}" name="id" />
-                                <f:ajax execute="@this" render="tableOverview" 
-                                        onevent="openOverview"/>
-                            </h:commandButton>
-                        </h:form>
-                     </h:column>
-                 </h:dataTable>
+                 <div class="table-responsive">
+                    <h:dataTable class="table table-hover" id="surveyList" 
+                                 value="#{answerController.getAll(param['id'])}" var="answer">
+                        <h:column>
+                            <f:facet name="header">Pregunta</f:facet>
+                            #{answer.question}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Respuestas</f:facet>
+                            #{answer.countReplies}
+                        </h:column>
+                        <h:column>
+                            <h:form>
+                               <h:commandButton class="btn btn-light"
+                                   value="Resumen" 
+                                   action="#{answerController.setQuestionId(answer.questionId)}" >
+                                   <f:param value="#{param['id']}" name="id" />
+                                   <f:ajax execute="@this" render="tableOverview" 
+                                           onevent="openOverview"/>
+                               </h:commandButton>
+                           </h:form>
+                        </h:column>
+                    </h:dataTable>
+                 </div>
              </div>
             
             <div class="modal" id="modalOverview" tabindex="-1">

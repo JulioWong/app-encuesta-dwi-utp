@@ -30,37 +30,38 @@
                      </div>
                  </div>    
                  <h:outputText value="&lt;br/&gt;" escape="false" />
-                 
-                 <h:dataTable class="table table-hover" id="surveyList" 
-                   value="#{accessCodeController.getAllCode(param['id'])}" var="accessCode">
-                     <h:column>
-                         <f:facet name="header">#</f:facet>
-                         #{accessCode.accessCodeId}
-                     </h:column>
-                     <h:column>
-                         <f:facet name="header">Nombre</f:facet>
-                         #{accessCode.firstName} #{accessCode.lastName}
-                     </h:column>
-                     <h:column>
-                         <f:facet name="header">Email</f:facet>
-                         #{accessCode.email}
-                     </h:column>
-                     <h:column>
-                         <f:facet name="header">Celular</f:facet>
-                         #{accessCode.cellPhone}
-                     </h:column>
-                     
-                     <h:column>
-                         <h:form id="formDeleteAccess">
-                            <h:commandButton class="btn btn-light" 
-                                value="Eliminar" 
-                                action="#{accessCodeController.delete(accessCode.accessCodeId)}" >
-                                <f:param value="#{param['id']}" name="id" />
-                            </h:commandButton>
-                        </h:form>
-                     </h:column>
-                     
-                 </h:dataTable>
+                 <div class="table-responsive">
+                    <h:dataTable class="table table-hover" id="surveyList" 
+                      value="#{accessCodeController.getAllCode(param['id'])}" var="accessCode">
+                        <h:column>
+                            <f:facet name="header">#</f:facet>
+                            #{accessCode.accessCodeId}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Nombre</f:facet>
+                            #{accessCode.firstName} #{accessCode.lastName}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Email</f:facet>
+                            #{accessCode.email}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Celular</f:facet>
+                            #{accessCode.cellPhone}
+                        </h:column>
+
+                        <h:column>
+                            <h:form id="formDeleteAccess">
+                               <h:commandButton class="btn btn-light" 
+                                   value="Eliminar" 
+                                   action="#{accessCodeController.delete(accessCode.accessCodeId)}" >
+                                   <f:param value="#{param['id']}" name="id" />
+                               </h:commandButton>
+                           </h:form>
+                        </h:column>
+
+                    </h:dataTable>
+                 </div>
              </div>
             <div class="modal" id="modalNewAccessCode" tabindex="-1">
                 <div class="modal-dialog">

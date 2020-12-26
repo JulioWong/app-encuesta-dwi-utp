@@ -30,62 +30,63 @@
                      </div>
                  </div>    
                  <h:outputText value="&lt;br/&gt;" escape="false" />
-                 
-                 <h:dataTable class="table table-hover" id="questionList" 
-                              value="#{questionController.getAllQuestion(param['id'])}" var="question">
-                    <h:column>
-                        <f:facet name="header">#</f:facet>
-                        <a href="#" data-target="#modalNewQuestion" data-toggle="modal" 
-                           data-id="#{question.questionId}"
-                           data-description="#{question.question}"
-                           data-typeid="#{question.typeId}"
-                        >
-                            #{question.questionId}
-                        </a>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Pregunta</f:facet>
-                        #{question.question}
-                    </h:column>
-                     <h:column>
-                        <f:facet name="header">Tipo</f:facet>
-                        #{question.type}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Fecha</f:facet>
-                        #{question.timestampCreated}
-                    </h:column>
-                    <h:column>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Opciones
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <ui:fragment rendered="#{question.type.equalsIgnoreCase('checkbox')}">
-                                    <h:form>
-                                        <h:commandButton class="dropdown-item" 
-                                            value="Alternativas" 
-                                            action="#{questionController.setQuestionId(question.questionId)}" >
-                                            <f:param value="#{param['id']}" name="id" />
-                                                <f:param value="#{param['description']}" name="description" />
-                                            <f:ajax execute="@this" render="tableAlternatives" 
-                                                    onevent="openAlternatives"/>
-                                        </h:commandButton>
-                                    </h:form>
-                                    <div class="dropdown-divider"></div>
-                                </ui:fragment>
-                                <h:form>
-                                    <h:commandButton class="itemOption dropdown-item" 
-                                      value="Eliminar"
-                                      action="#{questionController.delete(question.questionId)}" >
-                                        <f:param value="#{param['id']}" name="id" />
-                                        <f:param value="#{param['description']}" name="description" />
-                                    </h:commandButton>
-                                </h:form>
-                            </div>
-                        </div>
-                    </h:column>
-                 </h:dataTable>
+                 <div class="table-responsive">
+                    <h:dataTable class="table table-hover" id="questionList" 
+                                 value="#{questionController.getAllQuestion(param['id'])}" var="question">
+                       <h:column>
+                           <f:facet name="header">#</f:facet>
+                           <a href="#" data-target="#modalNewQuestion" data-toggle="modal" 
+                              data-id="#{question.questionId}"
+                              data-description="#{question.question}"
+                              data-typeid="#{question.typeId}"
+                           >
+                               #{question.questionId}
+                           </a>
+                       </h:column>
+                       <h:column>
+                           <f:facet name="header">Pregunta</f:facet>
+                           #{question.question}
+                       </h:column>
+                        <h:column>
+                           <f:facet name="header">Tipo</f:facet>
+                           #{question.type}
+                       </h:column>
+                       <h:column>
+                           <f:facet name="header">Fecha</f:facet>
+                           #{question.timestampCreated}
+                       </h:column>
+                       <h:column>
+                           <div class="btn-group">
+                               <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 Opciones
+                               </button>
+                               <div class="dropdown-menu dropdown-menu-right">
+                                   <ui:fragment rendered="#{question.type.equalsIgnoreCase('checkbox')}">
+                                       <h:form>
+                                           <h:commandButton class="dropdown-item" 
+                                               value="Alternativas" 
+                                               action="#{questionController.setQuestionId(question.questionId)}" >
+                                               <f:param value="#{param['id']}" name="id" />
+                                                   <f:param value="#{param['description']}" name="description" />
+                                               <f:ajax execute="@this" render="tableAlternatives" 
+                                                       onevent="openAlternatives"/>
+                                           </h:commandButton>
+                                       </h:form>
+                                       <div class="dropdown-divider"></div>
+                                   </ui:fragment>
+                                   <h:form>
+                                       <h:commandButton class="itemOption dropdown-item" 
+                                         value="Eliminar"
+                                         action="#{questionController.delete(question.questionId)}" >
+                                           <f:param value="#{param['id']}" name="id" />
+                                           <f:param value="#{param['description']}" name="description" />
+                                       </h:commandButton>
+                                   </h:form>
+                               </div>
+                           </div>
+                       </h:column>
+                    </h:dataTable>
+                 </div>
             </div>
             <div class="modal" id="modalNewQuestion" tabindex="-1">
                 <div class="modal-dialog">
