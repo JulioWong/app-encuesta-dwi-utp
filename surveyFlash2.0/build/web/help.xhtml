@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="./WEB-INF/facelets/template/client.xhtml">
+        <ui:define name="title">
+            <h:outputText value="Inicio" />
+        </ui:define>
+        <ui:define name="content">
+            <f:event type="preRenderView" listener="#{applicationController.checkAlreadyVerify}" />
+            <div class="container">
+                <div style="display:flex;max-width: 280px;margin:10px auto auto auto;align-items: center;">
+                    <img src="#{applicationController.logo}" width="100"/>
+                    <h6 style="font-size: 13px;font-weight: 600">#{applicationController.descriptionSurvey}</h6>
+                </div>
+                <div class="text-center">
+                    Antes de empezar recuerda lo siguiente:
+                </div>
+                <div style="max-width: 300px;margin:auto">
+                    <div style="margin: 25px 0 0 0">
+                        <img src="assets/images/faces/0_active.svg"/>
+                        <span style="margin-left: 30px">Muy malo</span>
+                    </div>
+                    <div style="margin: 25px 0 0 0">
+                        <img src="assets/images/faces/1_active.svg"/>
+                        <span style="margin-left: 30px">Malo</span>
+                    </div>
+                    <div style="margin: 25px 0 0 0">
+                        <img src="assets/images/faces/2_active.svg"/>
+                        <span style="margin-left: 30px">Regular</span>
+                    </div>
+                    <div style="margin: 25px 0 0 0">
+                        <img src="assets/images/faces/3_active.svg"/>
+                        <span style="margin-left: 30px">Bueno</span>
+                    </div>
+                    <div style="margin: 25px 0 0 0">
+                        <img src="assets/images/faces/4_active.svg"/>
+                        <span style="margin-left: 30px">Muy Bueno</span>
+                    </div>
+                    <div class="text-center" style="margin: 45px 0 0 0">
+                        <h:form>
+                            <h:commandButton class="btn btn-primary" value="¡Estoy listo!"
+                                             action="#{applicationController.init()}"/>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </ui:define>
+
+    </ui:composition>
+</html>
+

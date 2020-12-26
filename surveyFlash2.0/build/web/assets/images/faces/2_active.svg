@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="53px" height="49px" viewBox="0 0 53 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>C7886988-A676-4961-9E40-EFA8761C8CA1</title>
+    <defs>
+        <rect id="path-1" x="2.22464471e-14" y="0" width="52.1818182" height="48.1678322" rx="7"></rect>
+        <filter x="-30.2%" y="-26.5%" width="160.4%" height="165.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="1.25" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="3" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile/Survey/02" transform="translate(-133.000000, -268.000000)">
+            <g id="Factor-1" transform="translate(16.000000, 238.000000)">
+                <g id="Survey-Options/Mobile/Satisfaction_Faces" transform="translate(0.000000, 30.000000)">
+                    <g id="Survey_Options/Mobile/Satisfaction_Faces/03/On" transform="translate(117.409091, 0.000000)">
+                        <g id="Rectangle">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                            <use stroke="#5D5D5D" stroke-width="1.5" fill="#EDCB32" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        </g>
+                        <ellipse id="Oval" fill="#FFFFFF" cx="14.5506993" cy="15.2840237" rx="4.51573427" ry="4.16837009"></ellipse>
+                        <ellipse id="Oval-Copy" fill="#FFFFFF" cx="37.6311189" cy="15.2840237" rx="4.51573427" ry="4.16837009"></ellipse>
+                        <path d="M15.0524476,36.1258741 C18.4081474,35.5083378 21.9404551,35.1995697 25.6493706,35.1995697 C29.3582862,35.1995697 33.1849528,35.5083378 37.1293706,36.1258741" id="Path-2" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

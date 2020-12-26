@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="48px" viewBox="0 0 52 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>E2670993-F719-4AE4-940E-752F32E294FE</title>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile/Survey/01/Empty" transform="translate(-17.000000, -243.000000)">
+            <g id="Survey_Options/Mobile/Satisfaction_Faces/01/Off" transform="translate(17.000000, 243.000000)">
+                <rect id="BG" fill-opacity="0" fill="#FFFFFF" x="0" y="0" width="52" height="48"></rect>
+                <rect id="Rectangle" stroke-opacity="0.331430288" stroke="#000000" stroke-width="1.5" fill="#D2D2D2" x="4" y="3.69230769" width="44" height="40.6153846" rx="7"></rect>
+                <ellipse id="Oval" fill="#FFFFFF" cx="16.6621001" cy="17.2764268" rx="3.66210014" ry="3.43027295"></ellipse>
+                <ellipse id="Oval-Copy" fill="#FFFFFF" cx="35.4303634" cy="17.2764268" rx="3.66210014" ry="3.43027295"></ellipse>
+                <path d="M17.1198627,34.8565757 C19.903065,31.7121588 22.8327451,30.1399504 25.908903,30.1399504 C28.9850609,30.1399504 32.158881,31.7121588 35.4303634,34.8565757" id="Path-2" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M34.1842321,27.4447359 C33.8451487,28.6698334 34.1842321,29.2823821 35.2014821,29.2823821 C36.2187322,29.2823821 36.5578155,28.6698334 36.2187322,27.4447359 L35.2014821,25.4233251 L34.1842321,27.4447359 Z" id="Path-3" fill="#FFFFFF"></path>
+                <path d="M14.9582063,25.7295994 C14.619123,26.9546969 14.9582063,27.5672457 15.9754564,27.5672457 C16.9927064,27.5672457 17.3317898,26.9546969 16.9927064,25.7295994 L15.9754564,23.7081886 L14.9582063,25.7295994 Z" id="Path-3" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="48px" viewBox="0 0 52 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>EA8AF27D-3C8A-4FAA-AF42-2FFEE9E29667</title>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile/Survey/01/Empty" transform="translate(-251.000000, -243.000000)">
+            <g id="Survey-Options/Mobile/Satisfaction_Faces" transform="translate(17.000000, 243.000000)">
+                <g id="Survey_Options/Mobile/Satisfaction_Faces/05/Off" transform="translate(234.000000, 0.000000)">
+                    <rect id="BG" fill-opacity="0" fill="#FFFFFF" x="0" y="0" width="52" height="48"></rect>
+                    <rect id="Rectangle" stroke-opacity="0.331430288" stroke="#000000" stroke-width="1.5" fill="#D2D2D2" x="4" y="3.69230769" width="44" height="40.6153846" rx="7"></rect>
+                    <ellipse id="Oval" fill="#FFFFFF" cx="16.2881553" cy="15.0241191" rx="3.72815534" ry="3.43027295"></ellipse>
+                    <ellipse id="Oval-Copy" fill="#FFFFFF" cx="35.3949515" cy="15.0241191" rx="3.72815534" ry="3.43027295"></ellipse>
+                    <path d="M14.4240777,27.8876427 L37.2590291,27.8876427 C33.2489906,33.0330521 29.3503404,35.6057568 25.5630784,35.6057568 C21.7758164,35.6057568 18.0628161,33.0330521 14.4240777,27.8876427 Z" id="Path" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

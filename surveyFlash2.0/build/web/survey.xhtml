@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <ui:composition template="./WEB-INF/facelets/template/admin.xhtml">
+        <ui:define name="title">
+            <h:outputText value="Inicio" />
+        </ui:define>
+        <ui:define name="content">
+            <script src="./assets/js/survey.js"></script>
+            <div class="container">
+                <h:outputText value="&lt;br/&gt;" escape="false" />
+                <h:messages class="alert alert-danger" style="padding-left:25px"></h:messages>
+                 <div class="row">
+                     <div class="col-sm-6">
+                         <h5>Mis encuestas</h5>
+                     </div>
+                     <div class="col-sm-6 text-right">
+                         <button type="button" class="modalSurvey btn btn-primary" data-target="#modalNewSurvey" data-toggle="modal" data-id="0">
+                      Nueva encuesta 
+                      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                      </svg>
+                  </button>
+                     </div>
+                 </div>    
+                 <h:outputText value="&lt;br/&gt;" escape="false" />
+                 
+                 <h:dataTable class="table table-hover" id="surveyList" 
+                   value="#{surveyController.getAllSurvey(sessionController.company)}" var="survey">
+                     <h:column>
+                         <f:facet name="header">#</f:facet>
+                         <a href="#" data-target="#modalNewSurvey" data-toggle="modal" 
+                            data-id="#{survey.surveyId}"
+                            data-description="#{survey.description}"
+                            data-discount="#{survey.discount}"
+                            data-banner="#{survey.bannerDiscount}"
+                            data-exp="#{survey.discountExpiration}"
+                         >
+                       #{survey.surveyId}
+                       </a>
+                     </h:column>
+                     <h:column>
+                         <f:facet name="header">Descripción</f:facet>
+                         #{survey.description}
+                     </h:column>
+                     <h:column>
+                         <f:facet name="header">Descuento</f:facet>
+                         #{survey.discount}
+                     </h:column>
+                     <h:column>
+                         <f:facet name="header">Expiración</f:facet>
+                         #{survey.discountExpiration}
+                     </h:column>
+                     <h:column>
+                         <f:facet name="header">Activo</f:facet>
+                         #{survey.active}
+                     </h:column>
+                     <h:column>
+                         <div class="btn-group">
+                            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Opciones
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">                                           
+                             <h:link value="Preguntas" outcome="question" class="dropdown-item">
+                                 <f:param name="id" value="#{survey.surveyId}" />
+                                 <f:param name="description" value="#{survey.description}" />
+                             </h:link>
+                             <h:link value="Respuestas" outcome="answer" class="dropdown-item">
+                                 <f:param name="id" value="#{survey.surveyId}" />
+                             </h:link>
+                             <h:link value="Códigos de acceso" outcome="access-code" class="dropdown-item">
+                                 <f:param name="id" value="#{survey.surveyId}" />
+                             </h:link>
+                             <div class="dropdown-divider"></div>
+                             <h:form>
+                                 <h:commandButton class="itemOption dropdown-item" 
+                                   value="#{surveyController.getButtonInfo(survey.active)[1]}"
+                                   action="#{surveyController.allow(
+                                          sessionController.company,
+                                          survey.surveyId, 
+                                          surveyController.getButtonInfo(survey.active)[0])}" />
+                             </h:form>
+                            </div>
+                          </div>
+                     </h:column>
+                 </h:dataTable>
+             </div>
+             <div class="modal" id="modalNewSurvey" tabindex="-1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                      <h:form id="formSurvey">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Nueva encuesta</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                              <h:inputHidden id="surveyId" value="#{surveyController.surveyId}"/>
+                              
+                              <div class="form-group">
+                                <label for="description">Descripción</label>
+                                <h:inputText class="form-control" id="description" 
+                                    required="true" requiredMessage="La descripción es requerida" 
+                                    value="#{surveyController.description}"/>
+                              </div>
+                              <div class="form-group">
+                                <label for="discount">Descuento</label>
+                                <h:inputText class="form-control" id="discount" 
+                                    required="true" requiredMessage="El descuento es requerido" 
+                                    value="#{surveyController.discount}"/>
+                              </div>
+                              <div class="form-group">
+                                <label for="exp">Expiración del descuento</label>
+                                <h:inputText class="form-control" id="exp"
+                                    required="true" requiredMessage="Expitación del descuento es requerido" 
+                                    p:type="date" value="#{surveyController.exp}"/>
+                              </div>
+                              <div class="form-group">
+                                <label for="banner">Banner del descuento</label>
+                                <h:inputText class="form-control" id="banner" value="#{surveyController.banner}"/>
+                              </div>
+                          </div>
+                          <div class="modal-footer">
+                              <h:commandButton  value="Guardar" 
+                                class="btn btn-primary" 
+                                action="#{surveyController.saveData(
+                                          sessionController.userId, sessionController.company)}" />
+                          </div>
+                      </h:form>
+                  </div>
+                </div>
+              </div>
+        </ui:define>
+    </ui:composition>
+</html>
+

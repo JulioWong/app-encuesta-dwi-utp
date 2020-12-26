@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="./WEB-INF/facelets/template/client.xhtml">
+        <ui:define name="title">
+            <h:outputText value="Inicio" />
+        </ui:define>
+        <ui:define name="content">
+            <f:event type="preRenderView" listener="#{applicationController.checkAlreadyVerify}" />
+            <script src="./assets/js/all.js"></script>
+            <div class="container">
+                
+                <div style="display:flex;max-width: 280px;margin:10px auto auto auto;align-items: center;">
+                    <img src="#{applicationController.logo}" width="100"/>
+                    <h6 style="font-size: 13px;font-weight: 600">#{applicationController.descriptionSurvey}</h6>
+                </div>
+                <div style="margin:5px auto 25px auto;max-width: 250px">
+                    <div style="font-size: 12px;font-weight: 500;">Tu avance</div>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" 
+                             style="width: #{applicationController.progress()}%;" aria-valuenow="#{applicationController.progress()}" aria-valuemin="0" aria-valuemax="100">
+                            #{applicationController.progress()}%
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center;font-weight: 500">¡Felicidades!</div>
+                <div style="text-align: center;">Ganaste #{applicationController.discountSurvey} de descuento para tu siguiente compra.</div>
+                <div style="text-align: center;margin-top: 15px">
+                    <img src="#{applicationController.bannerDiscount}" alt="" width="250" height="100"/>
+                </div>
+                <div style="text-align: center;font-size: 11px;color:#707070;margin-top: 15px">Fecha de expiración #{applicationController.expirationDiscountSurvey}</div>
+                
+                <div style="text-align: center;margin-top:20px">
+                    <a href="./" class="btn btn-light">Ir al inicio</a>
+                </div>
+            </div>
+        </ui:define>
+
+    </ui:composition>
+</html>
+

@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <ui:composition template="./WEB-INF/facelets/template/admin.xhtml">
+        <ui:define name="title">
+            <h:outputText value="Accesos" />
+        </ui:define>
+        <ui:define name="content">
+            <f:event type="preRenderView" listener="#{accessCodeController.checkParams}" />
+            <script src="./assets/js/survey.js"></script>
+            <div class="container">
+                <h:outputText value="&lt;br/&gt;" escape="false" />
+                <h:messages class="alert alert-danger" style="padding-left:25px"></h:messages>
+                 <div class="row">
+                     <div class="col-sm-6">
+                         <h5>Accesos a encuesta # #{param['id']}</h5>
+                     </div>
+                     <div class="col-sm-6 text-right">
+                      <button type="button" class="modalSurvey btn btn-primary" data-target="#modalNewAccessCode" data-toggle="modal" data-id="0">
+                      Nuevo código 
+                      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                      </svg>
+                  </button>
+                     </div>
+                 </div>    
+                 <h:outputText value="&lt;br/&gt;" escape="false" />
+                 
+                 <h:dataTable class="table table-hover" id="surveyList" 
+                   value="#{accessCodeController.getAllCode(param['id'])}" var="accessCode">
+                     <h:column>
+                         <f:facet name="header">#</f:facet>
+                         #{accessCode.accessCodeId}
+                     </h:column>
+                     <h:column>
+                         <f:facet name="header">Nombre</f:facet>
+                         #{accessCode.firstName} #{accessCode.lastName}
+                     </h:column>
+                     <h:column>
+                         <f:facet name="header">Email</f:facet>
+                         #{accessCode.email}
+                     </h:column>
+                     <h:column>
+                         <f:facet name="header">Celular</f:facet>
+                         #{accessCode.cellPhone}
+                     </h:column>
+                     
+                     <h:column>
+                         <h:form id="formDeleteAccess">
+                            <h:commandButton class="btn btn-light" 
+                                value="Eliminar" 
+                                action="#{accessCodeController.delete(accessCode.accessCodeId)}" >
+                                <f:param value="#{param['id']}" name="id" />
+                            </h:commandButton>
+                        </h:form>
+                     </h:column>
+                     
+                 </h:dataTable>
+             </div>
+            <div class="modal" id="modalNewAccessCode" tabindex="-1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                      <h:form id="formAccess">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Nuevo acceso</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                              <div class="form-group">
+                                <label for="description">Nombre</label>
+                                <h:inputText class="form-control" id="firstName" 
+                                    required="true" requiredMessage="El nombre es requerido" 
+                                    value="#{accessCodeController.firstName}"/>
+                              </div>
+                              <div class="form-group">
+                                <label for="discount">Apellido</label>
+                                <h:inputText class="form-control" id="lastName" 
+                                    required="true" requiredMessage="El apellido es requerido" 
+                                    value="#{accessCodeController.lastName}"/>
+                              </div>
+                              <div class="form-group">
+                                <label for="exp">Documento</label>
+                                <h:inputText class="form-control" id="document"
+                                    required="true" requiredMessage="El documento es requerido" 
+                                    value="#{accessCodeController.document}"/>
+                              </div>
+                              <div class="form-group">
+                                <label for="banner">Email</label>
+                                <h:inputText class="form-control" id="email"
+                                    required="true" requiredMessage="El email es requerido" 
+                                    value="#{accessCodeController.email}"/>
+                              </div>
+                              <div class="form-group">
+                                <label for="banner">Celular</label>
+                                <h:inputText class="form-control" id="cellphone" value="#{accessCodeController.cellphone}"/>
+                              </div>
+                          </div>
+                          <div class="modal-footer">
+                              <h:commandButton  value="Guardar" 
+                                class="btn btn-primary" 
+                                action="#{accessCodeController.saveData()}">
+                                  <f:param value="#{param['id']}" name="id" />
+                              </h:commandButton>
+                          </div>
+                      </h:form>
+                  </div>
+                </div>
+              </div>
+        </ui:define>
+    </ui:composition>
+</html>
+
